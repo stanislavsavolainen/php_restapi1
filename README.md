@@ -8,8 +8,14 @@
 progress 1: 
 
 Make requests to IMBD Open Api - server ( movies data )
-Make request to  OpenLibrary - server ( movies data ) 
+http://www.omdbapi.com/
 
+Remember aslo get your own apikey for IMBD Open Api :
+http://www.omdbapi.com/apikey.aspx
+
+
+Make request to  OpenLibrary - server ( movies data ) 
+https://openlibrary.org/
 
 progress 2:
 Patch previous task to use JWT-token authorization. You can't go directly getBook.php and getMovie.php to view
