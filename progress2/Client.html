@@ -1,0 +1,118 @@
+<script type="text/javascript">
+
+
+    var hardcodedDeviceId = "uuid-string-1";  // this is client unique number ( check if this client allowed to connect) , new jwt-token generation is based on this parater
+    var currentJWTTokenString = ""; //send it to server and server check is it valid or depricated
+
+    var jwtUrl = "http://127.0.0.1/progress2/generateJWTtoken.php?deviceId=" + hardcodedDeviceId;
+
+    var movieJsonContent = "";
+
+
+
+    function ajaxCall(url, responseField) {
+
+        console.log("try to ajax with url :" + url + " and response :" + responseField);
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Ajax with url :" + url + " is done !");
+                document.getElementById(responseField).innerHTML = this.responseText;
+                var ajaxAnswer = this.responseText;
+
+
+
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+    }
+
+
+    function init() {
+        console.log("body on load");
+
+        //------------------- generateJWT ajax --------------------------------------
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+
+                console.log(" /generateJWT token ajax done !");
+
+             
+                //let jwtJsonObj =  JSON.stringify ( this.responseText );   //JSON.stringify( this.responseText )  //this.responseText.jwt_token;
+                let jwtJsonObj = JSON.parse(this.responseText);
+
+                if (typeof (jwtJsonObj.jwt_json) !== 'undefined') {
+
+                    let jwt_json = this.responseText;
+
+                    //there is small asynchronous wait  
+                    document.getElementById("jwt1").innerHTML = jwtJsonObj.jwt_json; //jwtStringFromServer;
+                    document.getElementById("jwt2").innerHTML = jwt_json;
+
+                    //handle error message from server    
+
+
+                    //------------------------- readBook and pass jwt parameter ---------
+                    //give server some time to save new jwt-token ( 2 second enought ) , visit /GenerateJWT- restapi first , then wait 2 sec
+                    setTimeout(function () {
+
+
+                        let readBookWithJwtURL = "http://127.0.0.1/progress2/getBook.php?isbn=0451526538&deviceId=" + hardcodedDeviceId + "&jwtstring=" + jwtJsonObj.jwt_json; //jwtStringFromServer;	
+
+                        ajaxCall(readBookWithJwtURL, "book1");
+
+
+                        let movieTitle = "Terminator";
+                        let movieUrlWithJWT = "http://127.0.0.1/progress2/getMovie.php?title=" + movieTitle
+                            + "&deviceId=" + hardcodedDeviceId + "&jwtstring=" + jwtJsonObj.jwt_json;
+
+                        ajaxCall(movieUrlWithJWT, "movie1");
+
+
+
+                    }, 2000);
+                    //----------------------------------------------------------------------	
+
+                } //typeof
+
+                else {
+
+                    if (typeof (jwtJsonObj.error_msg) !== 'undefined') {
+                        document.getElementById("jwt1").innerHTML = jwtJsonObj.error_msg;
+                        document.getElementById("jwt2").innerHTML = jwtJsonObj.error_msg;
+                    }
+                }
+
+
+            }
+        };
+        xmlhttp.open("GET", jwtUrl, true);
+        xmlhttp.send();
+
+        //---------------------------------------------------------------------------
+
+        //ajaxCall("http://127.0.0.1/lamia/restapi1/getBook1.php?isbn=0451526538" , "book1");
+        //ajaxCall("http://127.0.0.1/lamia/restapi1/getMovie1.php?title=Terminator" , "movie1");
+    }
+
+
+</script>
+
+<html>
+
+<body onload="init()">
+
+    <br /> Movie1 response : <div id="movie1"></div>
+    <br /> Book 1 response : <div id="book1"></div>
+    <br /><br />
+    <br /> jwt-token : <div id="jwt1"></div>
+    <br /> jwt-json : <div id="jwt2"></div>
+
+</body>
+
+</html>
