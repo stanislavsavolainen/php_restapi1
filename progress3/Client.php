@@ -232,7 +232,7 @@ $bookModel->__set("info_url" ,  $bookObject->info_url);
 
   <br />
 <div> <b> movie description  </b></div>
-</div> <?php echo ''.$movieObject->Plot ?> </div>
+<div> <?php echo ''.$movieObject->Plot ?> </div>
 
 </div>
 
