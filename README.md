@@ -28,8 +28,18 @@ You can check generateJWTtoken.php file and see how it works. Server save client
 Please note that some parts of JWT-token library is not my and followed from tutorial code. See info in preinstallation guide.
 
 progress 3:
-Php OOP design, make classes and more clear code. Focus on program architecture and remove not relevan code from previos progress
 
+ - Create PHP visual front-end. View client in structured and user friendly way ( hide json-data ) using php code ( without javascript ).
+ - Create global variables file "MyConfigurationData.php" wich shares same varriables with project like "absolute path" or "domain url"
+ - some small reference to OOP design.
+
+
+
+
+
+progress x :
+ - Php OOP design, make classes and more clear code. Focus on program architecture and remove not relevan code from previos progress
+ - also make JWT token expired check, take action, if JWT-token is right but expired ( auto-update or inform user to update browser page)
 
 
 raw materials :
