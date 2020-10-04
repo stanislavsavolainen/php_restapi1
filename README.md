@@ -14,7 +14,7 @@ Remember aslo get your own apikey for IMBD Open Api :
 http://www.omdbapi.com/apikey.aspx
 
 
-Make request to  OpenLibrary - server ( movies data ) 
+Make request to  OpenLibrary - server ( book data ) 
 https://openlibrary.org/
 
 _________________________________________________________
@@ -73,7 +73,7 @@ PREINSTALLATION & SYSTEM REQUIREMENTS
 
 install appache2 to ubuntu:
 
-``$ sudo apt-get install apache2```
+```$ sudo apt-get install apache2```
 
 install php to apache2:
 

@@ -7,7 +7,7 @@ $isbn = "0451526538";
 include "MyConfigurationData.php";
 
 
-//================================================
+//================================================================================
 
 if (isset($_POST['movie_submit'])) {
   
@@ -36,10 +36,6 @@ if (isset($_POST['book_submit'])) {
   if (!isset($_COOKIE["savedBook"])) $isbn = "0451526538";
 }
 
-
-// echo "<br/><font color='red'>". $movieTitle."</font>";
-// echo "<br/><font color='red'>". $isbn."</font>";
-
 //==== init connection link and deviceId (avoid hardcoded style) ===============
 
 $hardcodedDevice = "uuid-string-1";
@@ -52,43 +48,24 @@ if (!isset($_COOKIE["deviceId"])) {
 
 //====================== Get JWT token =========================================
 
-//$jwtUrl = $myProjectHost . "/generateJWTtoken.php?deviceId=" . $_COOKIE["deviceId"]; //$hardcodedDevice;
 $jwtUrl = $myProjectHost . "/getJWT?deviceId=" . $hardcodedDevice;
 $getJWTJSON = file_get_contents($jwtUrl);
-// echo $getJWTJSON;
+
 $getJWTObject = json_decode($getJWTJSON);
 
 $getJWTString = $getJWTObject->{'jwt_json'};
 
-//setcookie("jwtCookie", base64_encode( $getJWTString ) );
-
-//echo $_COOKIE["jwtCookie"];
-
-$jwtArray = explode('.', $getJWTString);
-
-
 // ====================== Get Book data ======================================== 
-
-//$base_enc = $_COOKIE["jwtCookie"];
-
-
 
 $bookUrlWithJWT = $myProjectHost . "/getBook?isbn=" . $isbn
   . "&deviceId=" . $_COOKIE["deviceId"] . "&jwtstring=" . $getJWTString;
 
-
-$bookUrlWithJWT2 = $myProjectHost . "/getBook?isbn=" . $isbn
-  . "&deviceId=" . $_COOKIE["deviceId"] . "&jwtstring=" . $getJWTString;
-
 $getBookInfoJSON = file_get_contents($bookUrlWithJWT);
-
 
 //====================== Get Movie data ========================================
 
-
 $movieUrlWithJWT = $myProjectHost . "/getMovie.php?title=" . $movieTitle
-  . "&deviceId=" . $_COOKIE["deviceId"] . "&jwtstring=" . $getJWTString; //$_COOKIE["jwtCookie"]; //$getJWTString;
-
+  . "&deviceId=" . $_COOKIE["deviceId"] . "&jwtstring=" . $getJWTString; 
 
 $getMovieInfoJSON = file_get_contents($movieUrlWithJWT);
 
@@ -122,16 +99,16 @@ if (property_exists($bookObject, 'error_msg')) {
 
   echo '<font color="red"><h1>' . $bookObject->error_msg . '</h1></font>';
 } else {
-  // =============================== book and movie search tools ================================ -->
+  // =============================== book and movie search tools ================================ 
 
 
   include "SearchToolPage.php";
 
-  // =============================== book frontend code ======================================== -->
+  // =============================== book frontend code ======================================== 
 
   include "BookPage.php";
 
-  //=============================== movie frontend code ======================================= -->
+  //=============================== movie frontend code ======================================= 
 
   include "MoviePage.php";
 }

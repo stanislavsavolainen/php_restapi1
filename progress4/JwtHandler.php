@@ -2,6 +2,7 @@
 <?php
 
 //not my file, used from tutorial and modified
+//https://www.w3jar.com/how-to-implement-the-jwt-with-php/
 
 require './src/JWT.php';
 require './src/ExpiredException.php';
