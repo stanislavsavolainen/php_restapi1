@@ -19,13 +19,7 @@ class ConfigClass{
         $this->movieTitleArray = array( "Terminator" , "Terminator_2" , "Terminator_3" , "Hackers" , "Final_Destination" );
 
     }   
-
-
-
     
 }
-
- 
-
 
 ?>

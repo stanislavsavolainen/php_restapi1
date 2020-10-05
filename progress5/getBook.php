@@ -1,5 +1,8 @@
 <?php
 
+$myJWTWebToken = "";
+require 'JwtHandler.php';
+$jwt = new JwtHandler();
 
 //include "MyConfigurationData.php"; -> replaced with ConfigClass
 require "./config/ConfigClass.php";
@@ -13,35 +16,7 @@ $myurl = "https://openlibrary.org/api/books";
 
 $clientParamIsbn = "";
 
-
-//-------------------------
-
-$myJWTWebToken = "";
-require 'JwtHandler.php';
-$jwt = new JwtHandler();
-
-
-//create files like uuid-string-1.txt on server side and make permission "chmod 777 uuid-string-1.txt"
-//$permissionHardwareList = array( "uuid-string-1" , "uuid-string-2" , "uuid-string");  
-
-
-//-------------------------
-
 $httpResponse = "";
-
-
-//header("Content-Type : application/json");
-
-//
-
-// http://127.0.0.1/..../getBook1.php?isbn=0451526538 ( example how php client call it) 
-
-//assume that openlibrary rest-api don't get else parameter than isbn
-
-//echo "where is isbn number ?";
-
-
-
 
 if (isset($_GET['isbn'])) {
 
@@ -53,17 +28,9 @@ if (isset($_GET['isbn'])) {
 
 	$myurl .= "&callback=mycallback";
 
-	//echo '<font color="blue">' . $myurl . '</font>';
-
 	$rawnotvalidjson = file_get_contents($myurl);
 
-	//echo '<font color="red">' . $rawnotvalidjson . '</font>';
-
 	$validJson = makeJSONForPhpClient($rawnotvalidjson);
-
-
-
-
 
 	// $httpResponse = $validJson; //json_encode($validJson);
 	// echo $httpResponse;
@@ -76,11 +43,9 @@ if (isset($_GET['isbn'])) {
 		$inputHardware = $_GET['deviceId'];
 		$userJWTToken = $_GET['jwtstring'];
 
-
 		foreach ( ($bookRestConfig->permissionHardwareList) as $compareHardware) {
 
 			if ($compareHardware == $inputHardware) {
-
 
 				//echo "device found";
 				//read jwt-token from server for selected device
@@ -97,7 +62,6 @@ if (isset($_GET['isbn'])) {
 
 					$decodedJwtToken =  $jwt->_jwt_decode_data(trim($serverJWTTOken));
 					$jwtTokenExpDate =   $jwt->_jwt_expiration_date(trim($serverJWTTOken));
-
 
 					date_default_timezone_set('Europe/Helsinki');
 					//https://stackoverflow.com/questions/365191/how-to-get-time-difference-in-minutes-in-php
@@ -134,9 +98,6 @@ if (isset($_GET['isbn'])) {
 						echo $httpResponse;
 					}
 					//================================================
-
-
-
 
 				}
 

@@ -1,10 +1,6 @@
 # php_restapi1
 
 
-
-
-
-
 progress 1: 
 
  - Make requests to IMBD Open Api - server ( movies data )
@@ -52,7 +48,6 @@ progress 4:
 
 - modified JwtHandler.php file ( not my ) for supporting jwt-expired date handle
 
-
 _________________________________________________________
 
 progress 5:
@@ -63,21 +58,20 @@ progress 5:
 
 - following OOP - pattern ( more logic required in future )
 
-
-_________________________________________________________
+_______________________________________________________
 
 progress x :
 
  - Php OOP design, make more classes and more clear code. Focus on program architecture and remove not relevan code from previos progress
  
- - replace deviceId to unique connection link from server, each client have their own unique random generated uuid number
+ - replace deviceId to unique connection link from server. Each client have their own unique connection link 
+   ( server side random generated uuid number )
  
-
 _________________________________________________________
 
 raw materials :
 
-Collect some links and code-parts, can be "low quality codee" at this folder, benefit purpose only
+Collect some links and code-parts, can be "low quality code" at this folder, benefit purpose only
 
 _________________________________________________________
 
@@ -96,7 +90,7 @@ this allow run php-scripts at localhosts just put html and php files to
 /var/www/html folder wich is default "linux public" folder at apache web server
 
 use command : 
-```$ sudo cp getBook.php /var/www/html/``` 
+```$ sudo cp getBook.php /var/www/html/progress5``` 
 ( from project folder assume you are in your /home folder )
 
 JWT-TOKEN GUIDE :
@@ -104,17 +98,23 @@ JWT-TOKEN GUIDE :
 For JWT-library follow this tutorial : 
 https://www.w3jar.com/how-to-implement-the-jwt-with-php/
 
-Copy github https://github.com/firebase/php-jwt source to your apache folder ( /var/www/html ) and "JwtHandle.php"  to generate JWT-token for user.
+Copy github https://github.com/firebase/php-jwt source to your apache folder ( /var/www/html/progress5 ) and "JwtHandle.php"  to generate JWT-token for user.
+
+Remember also add permission for file uuid-string-1.txt like this : :
+
+```$ sudo chmod 777 /var/www/html/progress5/uuid-string-1.txt``` 
+
+because php save user jwt-token on server side for verification
 
 .HTACCESS GUIDE:
 
-modify "apache2.conf" file  change paraneter AllowOverride from "None" to "All" at "/var/www" :
+modify "apache2.conf" file : change paraneter AllowOverride from "None" to "All" at "/var/www" :
 
 ```$sudo gedit /etc/apache/apache2.conf```
 
+This allow you set configuration based on your project. Our purpose is set php route to remove php dot extension. Old extension still works, but you are allowed use both solution
 
-create file .htaccess to your server directory "var/www/html/progress4" to view this file use "ls -la" command because dot-files are invisible files in linux.
-
+create file .htaccess to your server directory "var/www/html/progress5" to view this file use "ls -la" command because dot-files are invisible files in linux.
 
 write route data to .htaccess
 
