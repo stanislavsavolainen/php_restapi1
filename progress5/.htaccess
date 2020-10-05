@@ -1,0 +1,5 @@
+RewriteEngine On
+ErrorDocument 404 /progress5/m404.html
+RewriteRule ^getMovie getMovie.php
+RewriteRule ^getBook getBook.php
+RewriteRule ^getJWT generateJWTtoken.php

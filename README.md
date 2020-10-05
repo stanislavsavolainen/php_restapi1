@@ -55,9 +55,22 @@ progress 4:
 
 _________________________________________________________
 
+progress 5:
+
+- update front-end and make more relevant design, replace css-inline to css-file. 
+
+- split project to subfolders ( "front" is front-end materials and "config" folder contains my configuration-class)
+
+- following OOP - pattern ( more logic required in future )
+
+
+_________________________________________________________
 
 progress x :
- - Php OOP design, make classes and more clear code. Focus on program architecture and remove not relevan code from previos progress
+
+ - Php OOP design, make more classes and more clear code. Focus on program architecture and remove not relevan code from previos progress
+ 
+ - replace deviceId to unique connection link from server, each client have their own unique random generated uuid number
  
 
 _________________________________________________________
