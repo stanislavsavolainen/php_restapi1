@@ -8,13 +8,13 @@
   <div id="infoId">
 
     <div style=" width :50%;">
-      <div style=" float: left; width : 50%; width : 25%;"><b> Year </b> </div>
+      <div style=" float: left; width : 25%;"><b> Year </b> </div>
       <div id="yearId" style="float: left; width : 75%;"><?php echo '' . $movieObject->Year ?> </div>
     </div>
     <br />
 
     <div style=" width :50%;">
-      <div style=" float: left; width : 50%; width : 25%;"> <b> Genre </b> </div>
+      <div style=" float: left; width : 25%;"> <b> Genre </b> </div>
       <div id="genreId" style="float: left; width : 75%;"><?php echo '' . $movieObject->Genre ?> </div>
     </div>
     <br />

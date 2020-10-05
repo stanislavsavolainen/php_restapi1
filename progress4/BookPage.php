@@ -11,4 +11,4 @@
   <img src="<?php echo '' . $bookObject->thumbnail_url  ?>" width="200" height="200">
 </div>
 
-</div>
+
