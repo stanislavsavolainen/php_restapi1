@@ -58,6 +58,28 @@ progress 5:
 
 - following OOP - pattern ( more logic required in future )
 
+- add Client2.php ( no stable ) - version of client for movie custom search 
+
+
+
+- To save your time here is example ( rules for check is simle -> if space use "underline" and fist symbol is upper case )  
+
+
+``` 
+       Title : Game_of_thrones, Years : 2011 to 2019 , but empty at 2018
+       Title : Vikings, Year : 2012 to 2016 , 2018 to 2020
+       Title : Terminator , Year : 1984, 1992, 1993, 2003, 2008
+       Title : Batman , Year : 1989, 1992, 2015 , 2008, 2012  
+       Title : Home_alone , Year : 1990, 1992, 1997 
+
+``` 
+Please note that all movies by title not means TV-series or continue old saga. For more detailed info
+check  ```www.omdabi.com``` as mentioned above. There is no automatic tools added to rest-api, so you should 
+discover manually exsisting content and collect list about it. 
+
+- For "plot"-parameter I din't find some exceptional by search as I did with title and year mix. Please note that you 
+can't search only by year, title always required or "s"-parameter 
+
 _______________________________________________________
 
 progress x :
@@ -66,6 +88,8 @@ progress x :
  
  - replace deviceId to unique connection link from server. Each client have their own unique connection link 
    ( server side random generated uuid number )
+
+ - handle TV - series and show url with next/previous/all seasons
  
 _________________________________________________________
 
