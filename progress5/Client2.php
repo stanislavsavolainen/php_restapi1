@@ -1,38 +1,25 @@
-<!-- <style type="text/css" src="frontend_styles.css"></style> -->
-
-
 
 <html>
 
-<head>
-  <style type="text/css">
-    <?php include "./front/frontend_styles.css";   ?>
-  </style>
-  <title> PHP-RestApi client by Stanislav Savolainen</title>
-</head>
+	<head>
+	  <style type="text/css">
+		<?php include "./front/frontend_styles.css";   ?>
+		</style>
+		<title> PHP-RestApi client by Stanislav Savolainen</title>
+	</head>
 
-<body id="mainpage">
+	<body id="mainpage">
 
+	<?php
 
-  <?php
-
-
-
-
-  $movieTitle = "Hackers";
-  $isbn = "0451526538";
-
+ 	$movieTitle = "Hackers";
+	$isbn = "0451526538";
 
   //include "MyConfigurationData.php"; -> replaced to ConfigClass
 
   require "./config/ConfigClass.php";
   $cfg = new ConfigClass();
 
-  //require "./front/MClass.php";
-  //$mcl = new MClass();
-  //echo $mcl->txt1();
-
-  //echo "config class element path :". $cfg->apacheAbsolutePath ;
 
   //================================================================================
 
@@ -99,8 +86,8 @@
   			$movieUrlWithJWT .= "&title=".$_POST['movie_title'];
 		}
       
-		if (isset($_POST['movie_year'])  ) {   
-  			$movieUrlWithJWT .= "&year=".$_POST['movie_year'];
+		if (isset($_POST['movie_year'])  ) {
+			if( is_numeric ( $_POST['movie_year']  ) ) $movieUrlWithJWT .= "&year=".$_POST['movie_year'];
 		}
 
 		if (isset($_POST['movie_plot'])  ) {   
@@ -109,19 +96,15 @@
 
     } 
 
-   $movieUrlWithJWT .= "&jwtstring=" . $getJWTString;
+  $movieUrlWithJWT .= "&jwtstring=" . $getJWTString;
   
-
   $getMovieInfoJSON = file_get_contents($movieUrlWithJWT);
-
- 
-
 
   //===============================================================================
 
   echo '<a href="'.$bookUrlWithJWT.'"> book link </a>';
-echo '<br />';
-echo '<a href="'.$movieUrlWithJWT.'"> movie link </a>';
+  echo '<br />';
+  echo '<a href="'.$movieUrlWithJWT.'"> movie link </a>';
 
   $bookObject = (object) json_decode($getBookInfoJSON);
   $movieObject = (object) json_decode($getMovieInfoJSON);
@@ -146,7 +129,6 @@ echo '<a href="'.$movieUrlWithJWT.'"> movie link </a>';
 
   if (property_exists($bookObject, 'error_msg')) {
 
-
     //inform client by error_msg , if data can't be displayed
 
     echo '<font color="red"><h1>' . $bookObject->error_msg . '</h1></font>';
@@ -156,7 +138,6 @@ echo '<a href="'.$movieUrlWithJWT.'"> movie link </a>';
 
     //echo '<div></div>';
     include "./front/SearchToolPage2.php";
-
 
     // =============================== book frontend code ======================================== 
     //  include "BookPage.php";
@@ -170,8 +151,7 @@ echo '<a href="'.$movieUrlWithJWT.'"> movie link </a>';
     echo "</td> </tr></table>";
   }
 
-  ?>
+	?>
 
-</body>
-
+	</body>
 </html>
