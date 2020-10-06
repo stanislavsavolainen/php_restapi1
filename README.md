@@ -62,7 +62,7 @@ progress 5:
 
 
 
-- To save your time here is example ( rules for check is simle -> if space use "underline" and fist symbol is upper case )  
+- To save your time here is example ( rules for check is simple -> if space use  underline "_" and fist character is uppercase )  
 
 
 ``` 
@@ -74,7 +74,7 @@ progress 5:
 
 ``` 
 Please note that all movies by title not means TV-series or continue old saga. For more detailed info
-check  ```www.omdabi.com``` as mentioned above. There is no automatic tools added to rest-api, so you should 
+check  ```www.omdabi.com``` as mentioned above. There is no automatic tools added to IMBD rest-api, so you should 
 discover manually exsisting content and collect list about it. 
 
 - For "plot"-parameter I din't find some exceptional by search as I did with title and year mix. Please note that you 
@@ -110,7 +110,7 @@ install php to apache2:
 
 ```$ sudo apt-get install apache2 php libapache2-mod-php```
 
-this allow run php-scripts at localhosts just put html and php files to 
+This allow run php-scripts at localhosts. Just put html and php files to 
 /var/www/html folder wich is default "linux public" folder at apache web server
 
 use command : 
@@ -124,7 +124,7 @@ https://www.w3jar.com/how-to-implement-the-jwt-with-php/
 
 Copy github https://github.com/firebase/php-jwt source to your apache folder ( /var/www/html/progress5 ) and "JwtHandle.php"  to generate JWT-token for user.
 
-Remember also add permission for file uuid-string-1.txt like this : :
+Remember also add permission for file uuid-string-1.txt like this : 
 
 ```$ sudo chmod 777 /var/www/html/progress5/uuid-string-1.txt``` 
 
@@ -132,13 +132,13 @@ because php save user jwt-token on server side for verification
 
 .HTACCESS GUIDE:
 
-modify "apache2.conf" file : change paraneter AllowOverride from "None" to "All" at "/var/www" :
+modify "apache2.conf" file : change parameter AllowOverride from "None" to "All" at "/var/www" :
 
 ```$sudo gedit /etc/apache/apache2.conf```
 
 This allow you set configuration based on your project. Our purpose is set php route to remove php dot extension. Old extension still works, but you are allowed use both solution
 
-create file .htaccess to your server directory "var/www/html/progress5" to view this file use "ls -la" command because dot-files are invisible files in linux.
+create file .htaccess to your server directory "var/www/html/progress5" to view this file use "ls -la" command, because dot-files are invisible in linux.
 
 write route data to .htaccess
 

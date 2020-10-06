@@ -20,7 +20,6 @@
   require "./config/ConfigClass.php";
   $cfg = new ConfigClass();
 
-
   //================================================================================
 
   if (isset($_POST['movie_submit'])) {
@@ -77,7 +76,7 @@
 
   //====================== Get Movie data ========================================
 
-  $movieUrlWithJWT = ($cfg->myProjectHost) . "/getMovie.php?title=" . $movieTitle
+  $movieUrlWithJWT = ($cfg->myProjectHost) . "/getMovie?title=" . $movieTitle
   . "&deviceId=" . $_COOKIE["deviceId"]; 
  
     if (isset($_POST['movie_submit2'])) {  
@@ -130,8 +129,8 @@
   if (property_exists($bookObject, 'error_msg')) {
 
     //inform client by error_msg , if data can't be displayed
-
     echo '<font color="red"><h1>' . $bookObject->error_msg . '</h1></font>';
+  
   } else {
 
     // =============================== book and movie search tools ================================ 
