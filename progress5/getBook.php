@@ -106,7 +106,7 @@ if (isset($_GET['isbn'])) {
 		}
 
 		if( ! $deviceAndTokenMatch ){
-			$jwtJson = array("error_msg" =>  "no valid jwt-token found");
+			$jwtJson = array("error_msg" =>  "no valid jwt-token found. This error caused by following reason : cookie are disabled and  deviceId(cookie) is not initalized. Your actions are refresh browser page and allow cookie on this page.");
 						echo json_encode($jwtJson);
 		}
 

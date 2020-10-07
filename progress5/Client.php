@@ -56,11 +56,23 @@
 		setcookie("deviceId", "uuid-string-1");
 	  }
 
+	  //========  Check if cookies are disabled and deviceId is not initialized =======
+           
+	  if(  ( strlen($_COOKIE["deviceId"]) == 0 ) ) {
+		header("Refresh:0");
+  	  } else {
+			if( !isset($_COOKIE["deviceId"]) ) {    
+				echo '<br />';
+				echo '<font color="red"><h1> Your cookie is disabled, you cannot use this service ! </h1></font>';
+				echo '<br />';
+			}      
+		}   
+   					
 	  //echo $_COOKIE["deviceId"];
 
 	  //====================== Get JWT token =========================================
 
-	  $jwtUrl =  ($cfg->myProjectHost) . "/getJWT?deviceId=" . $hardcodedDevice;
+	  $jwtUrl =  ($cfg->myProjectHost) . "/getJWT?deviceId=" .$_COOKIE["deviceId"]; //$hardcodedDevice;
 	  $getJWTJSON = file_get_contents($jwtUrl);
 
 	  $getJWTObject = json_decode($getJWTJSON);

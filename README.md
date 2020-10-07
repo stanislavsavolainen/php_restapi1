@@ -60,6 +60,10 @@ progress 5:
 
 - add Client2.php ( no stable ) - version of client for movie custom search 
 
+- fix cookie init on page first time ( when browser is opened )
+
+- cookies are disabled and deviceId ( cookie) is not initialized, also inform user , if this happen
+
 
 
 - To save your time here is example ( rules for check is simple -> if space use  underline "_" and fist character is uppercase )  
