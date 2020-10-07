@@ -33,7 +33,7 @@
       </select>
       <input type="submit" name="movie_submit" value="Show movie">
     </form>
-  </div>
+  </br />
 	
   <div id="searchbar_movie2">
   <div> select movie or tv series </div>
