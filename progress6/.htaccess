@@ -1,0 +1,10 @@
+RewriteEngine On
+ErrorDocument 404 /progress6/m404.html
+#RewriteRule ^getMovie restapi/getMovie.php
+#RewriteRule ^getBook restapi/getBook.php
+#RewriteRule ^getJWT restapi/generateJWTtoken.php
+#RewriteRule ^getJWT http://192.168.10.47/progress6/restapi/generateJWTtoken.php
+RewriteRule getJWT restapi/generateJWTtoken.php
+RewriteRule getMovie restapi/getMovie.php
+RewriteRule getBook restapi/getBook.php
+RewriteRule getLink restapi/getUniqueConnectionLink.php

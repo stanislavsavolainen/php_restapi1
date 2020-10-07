@@ -58,13 +58,11 @@ progress 5:
 
 - following OOP - pattern ( more logic required in future )
 
-- add Client2.php ( no stable ) - version of client for movie custom search 
-
 - fix cookie init on page first time ( when browser is opened )
 
 - cookies are disabled and deviceId ( cookie) is not initialized, also inform user , if this happen
 
-
+- add Client2.php ( no stable ) - version of client for movie custom search 
 
 - To save your time here is example ( rules for check is simple -> if space use  underline "_" and fist character is uppercase )  
 
@@ -85,6 +83,18 @@ discover manually exsisting content and collect list about it.
 can't search only by year, title always required or "s"-parameter 
 
 _______________________________________________________
+
+
+progress 6:
+
+- split project to subfolders : add "restapi" folder for backend stuff
+
+- deviceId is not hardcoded anymore, server generate connection link. Create automatically text-file (uuid string as filename) for each device to store jwt-token
+
+- add my server private network ip-addess for configuration to use my program remotely on other computer
+
+_________________________________________________________
+
 
 progress x :
 

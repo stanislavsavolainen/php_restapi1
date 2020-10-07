@@ -1,0 +1,1 @@
+override this file content to jwt-token, when user cookies deviceId match to this filename via /generateJWTtoken.php
