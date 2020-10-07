@@ -70,7 +70,7 @@
 
   //====================== Get JWT token =========================================
 
-  $jwtUrl =  ($cfg->myProjectHost) . "/getJWT?deviceId=" . $_COOKIE["deviceId"]  //$hardcodedDevice;
+  $jwtUrl =  ($cfg->myProjectHost) . "/getJWT?deviceId=" . $_COOKIE["deviceId"];  //$hardcodedDevice;
   $getJWTJSON = file_get_contents($jwtUrl);
 
   $getJWTObject = json_decode($getJWTJSON);
