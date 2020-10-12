@@ -1,0 +1,94 @@
+
+
+ ============== INSTALL APACHE2 AND PHP TO GOOGLE CLOUD COMPUTE ENGINE ( browser ssh ) ===================
+
+stanislav_savolainen@instance-1:~$ sudo apt-get install apache2
+
+stanislav_savolainen@instance-1:~$ sudo apt-get install apache2 php libapache2-mod-php
+
+
+
+=============== CLONE GITHUB PROJECT TO GOOGLE CLOUD COMPUTE ENGINE USER HOME DIRECTORY ( browser ssh ) ===
+
+
+stanislav_savolainen@instance-1:/var/www/html$ cd /home/stanislav_savolainen/
+stanislav_savolainen@instance-1:~$ mkdir myphpgit
+stanislav_savolainen@instance-1:~$ cd myphpgit/
+stanislav_savolainen@instance-1:~/myphpgit$ git clone https://github.com/firebase/php-jwt
+stanislav_savolainen@instance-1:~/myphpgit$ git clone https://github.com/stanislavsavolainen/php_restapi1.git
+
+
+
+============== COPY GITHUB PROJECTS TO APACHE PUBLIC FOLDER AND MODIFY PROJECT FILES ( browser ssh ) =====
+
+stanislav_savolainen@instance-1:~$ cd myphpgit/cd php_restapi1
+stanislav_savolainen@instance-1:~/myphpgit/php_restapi1$ sudo cp -r * /var/www/html/
+
+
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$ sudo nano ConfigClass.php
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$ ls
+ConfigClass.php
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$ cd ..
+stanislav_savolainen@instance-1:/var/www/html/progress6$ ls
+Client2.php  Client.php  config  front  index.php  m404.html  restapi
+stanislav_savolainen@instance-1:/var/www/html/progress6$ cd restapi/
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ ls
+devices               getBook.php   getUniqueConnectionLink.php  uniqueDevice.txt  uuid-string-1.txt
+generateJWTtoken.php  getMovie.php  JwtHandler.php               UUID.php
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ sudo chmod 777 u
+uniqueDevice.txt   uuid-string-1.txt
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ sudo chmod 777 uuid-string-1.txt
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ sudo chmod 777 uniqueDevice.txt
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ ls
+devices               getBook.php   getUniqueConnectionLink.php  uniqueDevice.txt  uuid-string-1.txt
+generateJWTtoken.php  getMovie.php  JwtHandler.php               UUID.php
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ sudo chmod 777 devices
+stanislav_savolainen@instance-1:/var/www/html/progress6/restapi$ cd ..
+stanislav_savolainen@instance-1:/var/www/html/progress6$ cd config
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$ sudo nano ConfigClass.php
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$
+stanislav_savolainen@instance-1:/var/www/html/progress6/config$ cd /home
+stanislav_savolainen@instance-1:/home$ cd stanislav_savolainen/
+stanislav_savolainen@instance-1:~$ ls
+bucket1  credintials1  google_cloud_nodejs  myphpgit
+stanislav_savolainen@instance-1:~$ cd myphpgit/
+stanislav_savolainen@instance-1:~/myphpgit$ ls
+php-jwt  php_restapi1
+stanislav_savolainen@instance-1:~/myphpgit$ cd php-jwt/
+stanislav_savolainen@instance-1:~/myphpgit/php-jwt$ sudo cp -r * /var/www/html/progress6/restapi
+stanislav_savolainen@instance-1:~/myphpgit/php-jwt$ cd /var/www/html/progress6
+
+
+
+===================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

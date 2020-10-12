@@ -95,13 +95,18 @@ progress 6:
 
 _________________________________________________________
 
+google_cloud :
+
+- run my current project at google cloud compute engine ( visible in internet )
+
+- fast preinstallation from zero ( check google_cloud_cli.txt ) 
+
+_________________________________________________________
 
 progress x :
 
  - Php OOP design, make more classes and more clear code. Focus on program architecture and remove not relevan code from previos progress
  
- - replace deviceId to unique connection link from server. Each client have their own unique connection link 
-   ( server side random generated uuid number )
 
  - handle TV - series and show url with next/previous/all seasons
  
