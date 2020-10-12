@@ -101,6 +101,17 @@ google_cloud :
 
 - fast preinstallation from zero ( check google_cloud_cli.txt ) 
 
+- google-cloud version don't use .htaccess ( following action need to be done with Client.php and Client2.php) : modify all rest-api link refer directly to php file like this:
+
+```
+ /getMovie?title= to /restapi/getMovie.php?title=
+ /getBook?isbn=  to /restapi/getBook.php?isbn=
+ /getJWT?deviceId= to /restapi/generateJWTtoken.php?deviceId=
+ /getLink to /restapi/getUniqueConnectionLink.php
+ 
+```
+
+- also make sure that google-cloud firewall allow you use port 80 with ip-addess 0.0.0.0/0  ( I will describe info about it in future )
 _________________________________________________________
 
 progress x :
