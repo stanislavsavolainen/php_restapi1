@@ -93,6 +93,16 @@ progress 6:
 
 - add my server private network ip-addess for configuration to use my program remotely on other computer
 
+
+_______________________________________________________
+
+progress 7:
+
+- add MongoDB ( database ) to project : now deviceIds and jwt-tokens are stored in database instead of text-files
+
+- remove text-files and all references to it 
+
+
 _________________________________________________________
 
 google_cloud :

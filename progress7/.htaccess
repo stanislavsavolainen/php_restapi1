@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule getJWT restapi/generateJWTtoken.php
+RewriteRule getMovie restapi/getMovie.php
+RewriteRule getBook restapi/getBook.php
+RewriteRule getLink restapi/getUniqueConnectionLink.php

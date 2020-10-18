@@ -1,0 +1,71 @@
+
+
+
+stanislav@stanislav-lenovo:/var/www/html$ php --version
+PHP 7.2.24-0ubuntu0.18.04.7 (cli) (built: Oct  7 2020 15:24:25) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.2.24-0ubuntu0.18.04.7, Copyright (c) 1999-2018, by Zend Technologies
+stanislav@stanislav-lenovo:/var/www/html$ 
+stanislav@stanislav-lenovo:/var/www/html$ 
+stanislav@stanislav-lenovo:/var/www/html$ mongo --version
+MongoDB shell version v3.6.3
+git version: 9586e557d54ef70f9ca4b43c26892cd55257e1a5
+OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+allocator: tcmalloc
+modules: none
+build environment:
+    distarch: x86_64
+    target_arch: x86_64
+stanislav@stanislav-lenovo:/var/www/html$ 
+
+
+
+-----------------------------------------------------------------
+
+/etc/php/7.2/apache2/php.ini
+
+>> extension = /usr/lib/php/20170718/mongo.so
+
+
+-----------------------------------------------------------------
+
+
+> db.createCollection("php1", { autoIndexId : true } );
+{
+	"note" : "the autoIndexId option is deprecated and will be removed in a future release",
+	"ok" : 1
+}
+> 
+
+
+> db.php1.insert ( { deviceUUID :"70b2437a-b392-4729-ad08-960b621bf314" ,  jwtToken : "123123000"} );
+WriteResult({ "nInserted" : 1 })
+
+
+> db.php1.find();
+{ "_id" : ObjectId("5f8c6fa171d5a92532702022"), "deviceUUID" : "70b2437a-b392-4729-ad08-960b621bf314", "jwtToken" : "8888" }
+> 
+> db.php1.update( { deviceUUID : "70b2437a-b392-4729-ad08-960b621bf314" } , { $set : { jwtToken : "55555" }  } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+
+> db.php1.find().pretty();
+
+------------------------------------------------------------------
+
+mongo --eval 'db.php1.find(); ' test
+
+sudo mongoexport --db test -c php1 --pretty --out mongodbdevices1.js
+
+
+
+
+
+
+
+
+
+
+
+
